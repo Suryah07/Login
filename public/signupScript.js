@@ -104,22 +104,34 @@ userName.addEventListener("input", ()=>{
 });
 
 pass.addEventListener("input", ()=>{
-    let password = "";
+    let password = "", repassword = "";
     password += pass.value;
+    repassword += repass.value;
     if(password.length === 0){
         errorShort.classList.add("invisible");
         cntThree.classList.add("border-gray-200");
         cntThree.classList.remove("border-red-500");
-    }else if(password.length < 6){
-        errorShort.classList.remove("invisible");
-        cntThree.classList.remove("border-gray-200");
-        cntThree.classList.add("border-red-500");
-        flag[2] = false;
-    }else{
+    }else if(password.length > 6){
         errorShort.classList.add("invisible");
         cntThree.classList.add("border-gray-200");
         cntThree.classList.remove("border-red-500");
         flag[2] = true;
+    }else{
+        errorShort.classList.remove("invisible");
+        cntThree.classList.remove("border-gray-200");
+        cntThree.classList.add("border-red-500");
+        flag[2] = false;
+    }
+    if(password !== repassword){
+        errorMatch.classList.remove('invisible');
+        cntFour.classList.remove("border-gray-200");
+        cntFour.classList.add("border-red-500");
+        flag[3] = false;
+    }else{
+        errorMatch.classList.add('invisible');
+        cntFour.classList.add("border-gray-200");
+        cntFour.classList.remove("border-red-500");
+        flag[3] = true;
     }
     console.log(flag);
     console.log(signup);
