@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     while($row = $result->fetch_assoc()) 
     {
       //echo "id: " . $row["name"]. " - Name: " . $row["pass"]."<br>";
-      $dname = $row["name"];
+      $dname = $row["uname"];
       $dpass = $row["pass"];
       if($dname == $uname)
       {
