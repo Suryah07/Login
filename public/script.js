@@ -108,7 +108,3 @@ inputTwo.addEventListener("input", ()=>{
     //inputTwo.value = "";
 //});
 
-function signinalert()
-{
-    alert("Signed in");
-}
