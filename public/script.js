@@ -1,5 +1,7 @@
 "use strict";
 
+// Selectors
+
 const inputOne = document.querySelector(".input__one");
 const inputTwo = document.querySelector(".input__two");
 const cntOne = document.querySelector(".cnt__one");
@@ -11,6 +13,8 @@ const errorPass = document.querySelector(".error__short");
 
 const flag = [false, false];
 
+// Event listener for first input
+
 inputOne.addEventListener("input", ()=>{
     let userName = inputOne.value;
     if(userName === ""){
@@ -20,7 +24,7 @@ inputOne.addEventListener("input", ()=>{
         flag[0] = false;
         console.log(flag[0]);
     }
-    else if(!userName.match(/^[a-z0-9.@ ]+$/i)){
+    else if(!userName.match(/^[a-z0-9.@ ]+$/i)){ // Regex for checking special characters
         errorChar.classList.remove("invisible");
         cntOne.classList.add("border-red-500");
         cntOne.classList.remove("border-gray-200");
@@ -35,13 +39,13 @@ inputOne.addEventListener("input", ()=>{
     }
     console.log(userName);
     if(flag[0] === true && flag[1] === true){
-        login.disabled = "false";
+        login.disabled = false; // Enabling Login
         login.classList.remove("cursor-default");
         login.classList.add("cursor-pointer");
         login.classList.remove('opacity-70');
         login.classList.add('opacity-100');
     }else{
-        login.disabled = "true";
+        login.disabled = true; // Disabling Login
         login.classList.add("cursor-default");
         login.classList.remove("cursor-pointer");
         login.classList.add('opacity-70');
@@ -49,6 +53,8 @@ inputOne.addEventListener("input", ()=>{
         console.log("Not entered");
     }
 });
+
+// Event listener for second input 
 
 inputTwo.addEventListener("input", ()=>{
     let pass = "";
@@ -72,13 +78,13 @@ inputTwo.addEventListener("input", ()=>{
     console.log(pass.length);
         
     if(flag[0] === true && flag[1] === true){
-        login.disabled = "false";
+        login.disabled = false; // Enabling Login
         login.classList.remove("cursor-default");
         login.classList.add("cursor-pointer");
         login.classList.remove('opacity-70');
         login.classList.add('opacity-100');
     }else{
-        login.disabled = "true";
+        login.disabled = true; // Disabling Login
         login.classList.add("cursor-default");
         login.classList.remove("cursor-pointer");
         login.classList.add('opacity-70');
