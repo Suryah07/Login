@@ -57,8 +57,11 @@ inputOne.addEventListener("input", ()=>{
 // Event listener for second input 
 
 inputTwo.addEventListener("input", ()=>{
-    let pass = "";
+    console.log("Inside input two");
+    let pass = "", user = "";
     pass += inputTwo.value;
+    user += inputOne.value;
+    
     if(pass.length === 0){
         cntTwo.classList.add("border-gray-200");
         cntTwo.classList.remove("border-red-500");
@@ -75,7 +78,6 @@ inputTwo.addEventListener("input", ()=>{
         errorPass.classList.add("invisible");
         flag[1] = true;
     }
-    console.log(pass.length);
         
     if(flag[0] === true && flag[1] === true){
         login.disabled = false; // Enabling Login
@@ -91,4 +93,17 @@ inputTwo.addEventListener("input", ()=>{
         login.classList.remove('opacity-100');
         console.log("Not entered");
     }
+    console.log("Username length: ", user.length);
+    if(user.length !== 0){
+        flag[0] = true;
+    }else if(user.length === 0){
+        flag[0] = false;
+    }
+
+    console.log(flag, inputOne.value, inputTwo.value);
+});
+
+login.addEventListener("click", ()=>{
+    inputOne.value = "";
+    inputTwo.value = "";
 });

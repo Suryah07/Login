@@ -107,11 +107,19 @@ pass.addEventListener("input", ()=>{
     let password = "", repassword = "";
     password += pass.value;
     repassword += repass.value;
+    if(password === "" && repassword === "" || password === "" && repassword !== "" || password !== "" && repassword === ""){
+        console.log(flag[2], flag[3]);
+        errorShort.classList.add("invisible");
+        cntThree.classList.add("border-gray-200");
+        cntThree.classList.remove("border-red-500");
+        flag[2] = 0;
+        flag[3] = 0;
+    }
     if(password.length === 0){
         errorShort.classList.add("invisible");
         cntThree.classList.add("border-gray-200");
         cntThree.classList.remove("border-red-500");
-    }else if(password.length > 6){
+    }else if(password.length >= 6){
         errorShort.classList.add("invisible");
         cntThree.classList.add("border-gray-200");
         cntThree.classList.remove("border-red-500");
@@ -153,7 +161,7 @@ repass.addEventListener("input", ()=>{
         cntFour.classList.remove("border-gray-200");
         cntFour.classList.add("border-red-500");
         flag[3] = false;
-    }else{
+    }else if (password === repassword && password !== ""){
         errorMatch.classList.add('invisible');
         cntFour.classList.add("border-gray-200");
         cntFour.classList.remove("border-red-500");
@@ -172,7 +180,8 @@ email.addEventListener("input", ()=>{
         errorEmail.classList.add("invisible");
         cntFive.classList.add("border-gray-200");
         cntFive.classList.remove("border-red-500");
-    }else if(mail.endsWith("@gmail.com")){
+    }else if(mail.match(/^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/)){ 
+        // Regex for email validation
         errorEmail.classList.add("invisible");
         cntFive.classList.add("border-gray-200");
         cntFive.classList.remove("border-red-500");
@@ -200,4 +209,12 @@ email.addEventListener("input", ()=>{
     console.log(flag);
     console.log(signup);
     checker();
+});
+
+signup.addEventListener("click", ()=>{
+    fullname.value = "";
+    userName.value = "";
+    pass.value = "";
+    repass.value = "";
+    email.value = "";
 });
