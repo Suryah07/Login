@@ -2,10 +2,9 @@
 include("config.php");
 $uname = $_POST['username'];
 $upass = $_POST['password'];
-//$unumber = $_POST['phone'];
-//$umessage = $_POST['message'];
+$count = 0;
 
-// Check connection 
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
@@ -16,24 +15,26 @@ if ($conn->connect_error) {
   {
     while($row = $result->fetch_assoc()) 
     {
-      //echo "id: " . $row["name"]. " - Name: " . $row["pass"]."<br>";
       $dname = $row["uname"];
       $dpass = $row["pass"];
       if($dname == $uname)
       {
         if($dpass == $upass)
         {
-          echo "login successfull";
+          echo "login successfull.";
+          $count = 1;
         }
       }
+    }
+    if($count == 0)
+    {
+      echo "Wrong credentials";
     }
   }
   else 
   {
     echo "0 results";
   }
-
-  //echo "Connection established ".$uname."welcome".$upass;
   
   $conn->close();
   ?>

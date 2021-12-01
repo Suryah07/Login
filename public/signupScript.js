@@ -211,10 +211,10 @@ email.addEventListener("input", ()=>{
     checker();
 });
 
-signup.addEventListener("click", ()=>{
-    fullname.value = "";
-    userName.value = "";
-    pass.value = "";
-    repass.value = "";
-    email.value = "";
-});
+//signup.addEventListener("click", ()=>{
+   // fullname.value = "";
+   // userName.value = "";
+   // pass.value = "";
+   // repass.value = "";
+  //  email.value = "";
+//});

@@ -103,7 +103,7 @@ inputTwo.addEventListener("input", ()=>{
     console.log(flag, inputOne.value, inputTwo.value);
 });
 
-login.addEventListener("click", ()=>{
-    inputOne.value = "";
-    inputTwo.value = "";
-});
+//login.addEventListener("click", ()=>{
+    //inputOne.value = "";
+    //inputTwo.value = "";
+//});
