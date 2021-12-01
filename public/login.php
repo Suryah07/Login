@@ -21,14 +21,20 @@ if ($conn->connect_error) {
       {
         if($dpass == $upass)
         {
-          echo "login successfull.";
+          echo '<script type="text/javascript">
+          alert("Signed in");
+          window.location = "index.html";
+          </script>';
           $count = 1;
         }
       }
     }
     if($count == 0)
     {
-      echo "Wrong credentials";
+      echo '<script type="text/javascript">
+      alert("Wrong credentials!");
+      window.location = "index.html";
+      </script>';
     }
   }
   else 
