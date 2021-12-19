@@ -23,7 +23,7 @@ inputOne.addEventListener("input", () => {
     cntOne.classList.add("border-gray-200");
     flag[0] = false;
     console.log(flag[0]);
-  } else if (!userName.match(/^[a-z0-9.@ ]+$/i)) {
+  } else if (!userName.match(/^[a-z0-9.@_]+$/i)) {
     // Regex for checking special characters
     errorChar.classList.remove("invisible");
     cntOne.classList.add("border-red-500");
